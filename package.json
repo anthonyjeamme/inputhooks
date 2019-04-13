@@ -1,0 +1,12 @@
+{
+  "name": "inputhooks",
+  "version": "0.0.1",
+  "description": "Simple input hooks for React with localstorage/sessionstorage saving",
+  "main": "index.js",
+  "author": {
+    "name": "Anthony JEAMME",
+    "email": "anthony@jeamme.fr",
+    "url": "https://anthony.jeamme.fr"
+  },
+  "license": "MIT"
+}
