@@ -8,5 +8,14 @@
     "email": "anthony@jeamme.fr",
     "url": "https://anthony.jeamme.fr"
   },
+  "keywords": [
+    "React",
+    "input",
+    "form",
+    "hooks",
+    "hook",
+    "localstorage",
+    "sessionstorage"
+  ],
   "license": "MIT"
 }
