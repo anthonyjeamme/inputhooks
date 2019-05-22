@@ -6,9 +6,11 @@ export const MAIL_VALID = (value) => {
     return re.test(String(value).toLowerCase());
 }
 
-export const allValid = (...inputHooks) => {
-    for (let i = 0; i < inputHooks.length; i++) {
-        if (!inputHooks[i].valid) return false
+export const allValid = (inputHooks) => {
+
+    for (let i = 0; i < Object.keys(inputHooks).length; i++) {
+        const inputHook = inputHooks[Object.keys(inputHooks)[i]]
+        if (!inputHook.valid) return false
     }
     return true
 }

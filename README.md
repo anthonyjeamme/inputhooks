@@ -67,7 +67,7 @@ and use them like that :
 
     then the value nameInputHook.value will be lowercased.
 
-## Helper
+## Helpers
 
 The function allValid helps to know if every inputhook are valid :
 
@@ -75,4 +75,4 @@ The function allValid helps to know if every inputhook are valid :
 
 and just use the function like that :
 
-    const valid = allValid( nameInputHook, lastnameInputhook )
+    const valid = allValid({ nameInputHook, lastnameInputhook })
