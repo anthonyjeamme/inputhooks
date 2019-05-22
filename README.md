@@ -62,4 +62,13 @@ and use them like that :
     const nameInputHook = useInput('',{
         validation: NOT_NULL
     })
-    
+
+# Helper
+
+The function allValid helps to know if every inputhook are valid :
+
+    import { allValid } from 'inputhooks'
+
+and just use the function like that :
+
+    const valid = allValid( nameInputHook, lastnameInputhook )

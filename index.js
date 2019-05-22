@@ -6,6 +6,13 @@ export const MAIL_VALID = (value) => {
     return re.test(String(value).toLowerCase());
 }
 
+export const allValid = (...inputHooks) => {
+    for (let i = 0; i < inputHooks.length; i++) {
+        if (!inputHooks[i].valid) return false
+    }
+    return true
+}
+
 export default (defaultValue = null, config = {}) => {
 
     const [value, setValue] = useState(
@@ -57,6 +64,6 @@ export default (defaultValue = null, config = {}) => {
 
             setValue(value)
         },
-        dataValid: valid
+        valid
     }
 }
