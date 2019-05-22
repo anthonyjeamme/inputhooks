@@ -33,21 +33,15 @@ export default (defaultValue = null, config = {}) => {
         config.validation = null
     }
 
-
     if (config.inputPatch && typeof config.inputPatch !== 'function') {
         console.error('[inputHooks] inputPatch should be a function')
         config.inputPatch = null
     }
 
-    if (config.ouputPatch && typeof config.ouputPatch !== 'function') {
-        console.error('[inputHooks] ouputPatch should be a function')
-        config.ouputPatch = null
-    }
-
     const [valid, setValid] = useState(config.validation && typeof config.validation === 'function' ? config.validation(defaultValue) : true)
 
     return {
-        value: config.outputPatch ? config.outputPatch(value) : value,
+        value,
         onChange: e => {
             let value = e.target.value;
 

@@ -67,14 +67,6 @@ and use them like that :
 
     then the value nameInputHook.value will be lowercased.
 
-    You can also format output with :
-
-    const nameInputHook = useInput('John Doe', {
-        outputPatch: value => value.toLowerCase()
-    })
-
-    the lowercased value will be displayed but the value of nameInputHook.value isn't modified.
-
 ## Helper
 
 The function allValid helps to know if every inputhook are valid :
