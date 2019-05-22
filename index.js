@@ -29,32 +29,34 @@ export default (defaultValue = null, config = {}) => {
     )
 
     if (config.validation && typeof config.validation !== 'function') {
-
         console.error(`InputHooks validation function should be a function`)
+        config.validation = null
+    }
+
+
+    if (config.inputPatch && typeof config.inputPatch !== 'function') {
+        console.error('[inputHooks] inputPatch should be a function')
+        config.inputPatch = null
+    }
+
+    if (config.ouputPatch && typeof config.ouputPatch !== 'function') {
+        console.error('[inputHooks] ouputPatch should be a function')
+        config.ouputPatch = null
     }
 
     const [valid, setValid] = useState(config.validation && typeof config.validation === 'function' ? config.validation(defaultValue) : true)
 
     return {
-        value,
+        value: config.outputPatch ? config.outputPatch(value) : value,
         onChange: e => {
             let value = e.target.value;
 
-            if (config.valuePatch) {
-
-                if (! typeof config.valuePatch === 'function') {
-                    console.error('[inputHooks] valuePatch should be a function')
-                } else {
-                    value = config.valuePatch(value)
-                }
+            if (config.inputPatch) {
+                value = config.inputPatch(value)
             }
 
             if (config.validation) {
-
-                if (typeof config.validation === 'function') {
-
-                    setValid(config.validation(value))
-                }
+                setValid(config.validation(value))
             }
 
             if (config.localStorage) {

@@ -39,12 +39,6 @@ and sessionstorage with :
         sessionStorage:'data-name'
     })
 
-You can also handle user input with :
-
-    const nameInputHook = useInput('John Doe', {
-        valuePatch: value => value.toLowerCase()
-    })
-
 ## Validation
 
 It's also possible to set a validation function :
@@ -63,7 +57,25 @@ and use them like that :
         validation: NOT_NULL
     })
 
-# Helper
+## Formatting
+
+    You can format user input with :
+
+    const nameInputHook = useInput('John Doe', {
+        inputPatch: value => value.toLowerCase()
+    })
+
+    then the value nameInputHook.value will be lowercased.
+
+    You can also format output with :
+
+    const nameInputHook = useInput('John Doe', {
+        outputPatch: value => value.toLowerCase()
+    })
+
+    the lowercased value will be displayed but the value of nameInputHook.value isn't modified.
+
+## Helper
 
 The function allValid helps to know if every inputhook are valid :
 
