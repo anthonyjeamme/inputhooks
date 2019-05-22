@@ -44,3 +44,22 @@ You can also handle user input with :
     const nameInputHook = useInput('John Doe', {
         valuePatch: value => value.toLowerCase()
     })
+
+## Validation
+
+It's also possible to set a validation function :
+
+    const nameInputHook = useInput('',{
+        validation: (value) => value.length > 2
+    })
+
+You can import from inputhooks some validation functions :
+
+    import useInput, {NOT_NULL, MAIL_VALID} from 'inputhooks'
+
+and use them like that :
+
+    const nameInputHook = useInput('',{
+        validation: NOT_NULL
+    })
+    
