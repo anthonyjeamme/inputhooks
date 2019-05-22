@@ -28,7 +28,12 @@ export default (defaultValue = null, config = {}) => {
                 : defaultValue
     )
 
-    const [valid, setValid] = useState(false)
+    if (config.validation && typeof config.validation !== 'function') {
+
+        console.error(`InputHooks validation function should be a function`)
+    }
+
+    const [valid, setValid] = useState(config.validation && typeof config.validation === 'function' ? config.validation(defaultValue) : true)
 
     return {
         value,
@@ -46,10 +51,7 @@ export default (defaultValue = null, config = {}) => {
 
             if (config.validation) {
 
-                if (typeof config.validation !== 'function') {
-
-                    console.error(`InputHooks validation function should be a function`)
-                } else {
+                if (typeof config.validation === 'function') {
 
                     setValid(config.validation(value))
                 }
