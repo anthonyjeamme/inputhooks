@@ -6,7 +6,7 @@ Simplify your inputs in React with inputhooks
 
 Just import the lib
 
-    import useInput from 'inputhooks'
+    import { useInput } from 'inputhooks'
 
 And build your forms easily
 
@@ -24,6 +24,23 @@ And build your forms easily
 Access to the value with :
 
     nameInputHook.value
+
+## Checkbox
+
+    import { useCheckbox } from 'inputhooks'
+    
+    // ...
+    
+    const optionABHook = useIuseCheckboxnput('A')
+
+    // ...
+
+    <input type='checkbox' {...optionABHook('A')}>
+    <input type='checkbox' {...optionABHook('B')}>
+
+To access the value :
+
+    optionABHook.value
 
 ## Config
 
@@ -49,7 +66,7 @@ It's also possible to set a validation function :
 
 You can import from inputhooks some validation functions :
 
-    import useInput, {NOT_NULL, MAIL_VALID} from 'inputhooks'
+    import {useInput, NOT_NULL, MAIL_VALID} from 'inputhooks'
 
 and use them like that :
 
@@ -76,3 +93,4 @@ The function allValid helps to know if every inputhook are valid :
 and just use the function like that :
 
     const valid = allValid({ nameInputHook, lastnameInputhook })
+

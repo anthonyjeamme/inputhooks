@@ -1,6 +1,6 @@
 {
   "name": "inputhooks",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Simple input hooks for React with localstorage/sessionstorage saving",
   "main": "index.js",
   "keywords": [
