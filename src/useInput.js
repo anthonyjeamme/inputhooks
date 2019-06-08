@@ -30,28 +30,33 @@ export const useInput = (defaultValue = null, config = {}) => {
 
     const [valid, setValid] = useState(config.validation && typeof config.validation === 'function' ? config.validation(defaultValue) : true)
 
+    const onChange = e => {
+        let value = e.target.value;
+
+        if (config.inputPatch) {
+            value = config.inputPatch(value)
+        }
+
+        if (config.validation) {
+            setValid(config.validation(value))
+        }
+
+        if (config.localStorage) {
+            localStorage.setItem(config.localStorage, value)
+        }
+        if (config.sessionStorage) {
+            sessionStorage.setItem(config.sessionStorage, value)
+        }
+
+        setValue(value)
+    }
+
     return {
-        value,
-        onChange: e => {
-            let value = e.target.value;
-
-            if (config.inputPatch) {
-                value = config.inputPatch(value)
-            }
-
-            if (config.validation) {
-                setValid(config.validation(value))
-            }
-
-            if (config.localStorage) {
-                localStorage.setItem(config.localStorage, value)
-            }
-            if (config.sessionStorage) {
-                sessionStorage.setItem(config.sessionStorage, value)
-            }
-
-            setValue(value)
+        field: {
+            value,
+            onChange
         },
+        value,
         valid
     }
 }

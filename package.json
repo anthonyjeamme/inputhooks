@@ -12,6 +12,9 @@
     "localstorage",
     "sessionstorage"
   ],
+  "dependencies": {
+    "react": ">=16.8.0"
+  },
   "author": {
     "name": "Anthony JEAMME",
     "email": "anthony@jeamme.fr",

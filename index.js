@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 export * from './src/validators'
 export * from './src/utils'
 export * from './src/useCheckbox'
