@@ -19,6 +19,9 @@ export const useCheckbox = (defaultValue = null, config = {}) => {
     )
 
     return {
+        field: {
+            value
+        },
         value,
         valid: true,
         for:

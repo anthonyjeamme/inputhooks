@@ -16,7 +16,7 @@ And build your forms easily
 
         return(
             <>
-                <input {...nameInputHook}/>
+                <input {...nameInputHook.field}/>
             </>
         )
     }
@@ -31,12 +31,12 @@ Access to the value with :
     
     // ...
     
-    const optionABHook = useIuseCheckboxnput('A')
+    const optionABHook = useCheckbox('A')
 
     // ...
 
-    <input type='checkbox' {...optionABHook('A')}>
-    <input type='checkbox' {...optionABHook('B')}>
+    <input type='checkbox' {...optionABHook('A').field}>
+    <input type='checkbox' {...optionABHook('B').field}>
 
 To access the value :
 
